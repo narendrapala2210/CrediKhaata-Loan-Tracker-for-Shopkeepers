@@ -1,4 +1,6 @@
 import express, { Request, Response } from "express";
+import { errorHandler } from "@credikhaata/shared";
+
 import morgan from "morgan";
 import cors from "cors";
 import routes from "./routes";
@@ -18,7 +20,6 @@ app.get("/health", (req: Request, res: Response) => {
   });
 });
 
-// app.use("") // not found
-// app.use() // global error handler
+app.use(errorHandler); // global error handler
 
 export default app;
