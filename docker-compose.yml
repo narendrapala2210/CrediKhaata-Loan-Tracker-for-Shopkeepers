@@ -6,3 +6,11 @@ services:
     container_name: api_gateway
     ports:
       - "3000:3000"
+    depends_on:
+      - auth-service
+
+  auth-service:
+    build: ./services/auth-service
+    container_name: auth_service
+    ports:
+      - "3001:3001"
